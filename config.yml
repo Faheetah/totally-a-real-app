@@ -1,0 +1,2 @@
+db: sqlite://stats.db
+redis: localhost:6379

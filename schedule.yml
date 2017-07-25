@@ -1,0 +1,6 @@
+stats:
+  every:
+    - 5s
+  class: Stats
+  queue: stats
+  description: check stats every second
