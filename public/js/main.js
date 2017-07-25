@@ -15,11 +15,11 @@ $(document).ready(function() {
                                    + '</td><td>' 
                                    + d['time'] 
                                    + '</td><td>' 
-                                   + d['uptime'] 
+                                   + d['uptime'] + 's' 
                                    + '</td><td>' 
                                    + d['loadavg']
                                    + '</td><td>' 
-                                   + d['free']
+                                   + parseFloat(d['free'] / 1024).toFixed(2) + 'MB'
                                    + '</td></tr>')
                     })
                 }
