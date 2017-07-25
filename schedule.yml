@@ -3,4 +3,4 @@ stats:
     - 5s
   class: Stats
   queue: stats
-  description: check stats every second
+  description: check stats every 5 seconds

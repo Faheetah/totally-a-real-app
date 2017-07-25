@@ -8,10 +8,11 @@ $(document).ready(function() {
                 success: function(data) {
                     main = $('#main')
                     main.empty()
-                    // main.append(data)
-                    main.append('<tr><th>Time</th><th>Uptime</th><th>Loadavg</th><th>Free Memory</th></tr>')
+                    main.append('<tr><th>Hostname</th><th>Time</th><th>Uptime</th><th>Loadavg</th><th>Free Memory</th></tr>')
                     $.each(data, function(i, d) {
                        main.append('<tr><td>' 
+                                   + d['hostname'] 
+                                   + '</td><td>' 
                                    + d['time'] 
                                    + '</td><td>' 
                                    + d['uptime'] 
