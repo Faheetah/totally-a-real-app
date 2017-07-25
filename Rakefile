@@ -7,7 +7,7 @@ config = YAML.load_file('config.yml')
 namespace :resque do
   task :setup do
     require 'resque'
-    require 'job/stats'
+    require './job/stats'
     Resque.redis = config['redis']
   end
 
