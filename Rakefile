@@ -24,6 +24,10 @@ namespace :db do
     require 'sequel'
     Sequel.extension :migration
     db = Sequel.connect(config['db'])
-    Sequel::Migrator.run(db, "db/migrations")
+    if not Sequel::Migrator.is_current?(db, "db/migrations")
+      p "Migrating..."
+      Sequel::Migrator.run(db, "db/migrations")
+      p "Done"
+    end
   end
 end
