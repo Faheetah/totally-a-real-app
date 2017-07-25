@@ -8,13 +8,13 @@ class Stats
   @queue = :stats
 
   def self.perform
-    uptime = Time.now - IO.read('/proc/uptime').split[0].to_i
+    uptime = IO.read('/proc/uptime').split[0].split('.')[0]
     loadavg = IO.read('/proc/loadavg').split[0]
     free_memory = %x(free).split(" ")[9]
     hostname = %x(hostname)
 
     stats = DB[:stats]
-    p "#{Time.now} #{uptime} #{loadavg} #{free_memory}"
+    p "#{hostname} #{Time.now} #{uptime} #{loadavg} #{free_memory}"
     stats.insert(:hostname => hostname, :time => Time.now, :uptime => uptime, :loadavg => loadavg, :free => free_memory)
   end
 end
